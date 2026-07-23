@@ -1,0 +1,200 @@
+<svg width="1280" height="420" viewBox="0 0 1280 420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <linearGradient id="bgGradL" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#f0f9ff"/>
+    <stop offset="55%" stop-color="#e0f2fe"/>
+    <stop offset="100%" stop-color="#dbeafe"/>
+  </linearGradient>
+
+  <linearGradient id="nameGradL" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#0891b2"/>
+    <stop offset="50%" stop-color="#1d4ed8"/>
+    <stop offset="100%" stop-color="#0891b2"/>
+    <animate attributeName="x1" values="-20%;120%;-20%" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="80%;220%;80%" dur="6s" repeatCount="indefinite"/>
+  </linearGradient>
+
+  <linearGradient id="barGradL" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#0284c7"/>
+    <stop offset="100%" stop-color="#0891b2"/>
+  </linearGradient>
+
+  <radialGradient id="orb1L" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="orb2L" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+  </radialGradient>
+
+  <filter id="glowL" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="3" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <clipPath id="frameL">
+    <rect x="0" y="0" width="1280" height="420" rx="18"/>
+  </clipPath>
+
+  <clipPath id="avatarRevealL">
+    <rect x="1010" y="70" width="220" height="0">
+      <animate attributeName="height" from="0" to="260" begin="0.4s" dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1"/>
+    </rect>
+  </clipPath>
+</defs>
+
+<style>
+  .mono { font-family: 'Courier New', Consolas, monospace; }
+  .sans { font-family: 'Segoe UI', Arial, sans-serif; }
+
+  .cursor { fill:#0891b2; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+
+  .typeline { animation: typeReveal 6s steps(46,end) infinite; clip-path: inset(0 100% 0 0); }
+  @keyframes typeReveal {
+    0% { clip-path: inset(0 100% 0 0);} 
+    45% { clip-path: inset(0 0% 0 0);} 
+    85% { clip-path: inset(0 0% 0 0);} 
+    100% { clip-path: inset(0 100% 0 0);} 
+  }
+
+  .letter { opacity:0; animation: letterIn 8s ease infinite; }
+  @keyframes letterIn {
+    0% { opacity:0; transform: translateY(8px);} 
+    6% { opacity:1; transform: translateY(0);} 
+    92% { opacity:1;} 
+    100% { opacity:0;} 
+  }
+
+  .role { opacity:0; animation: roleCycle 8s infinite; }
+  @keyframes roleCycle {
+    0% { opacity:0;} 3% { opacity:1;} 22% { opacity:1;} 27% { opacity:0;} 100% { opacity:0;}
+  }
+
+  .pill { animation: pillPulse 3s ease-in-out infinite; }
+  @keyframes pillPulse { 0%,100%{ opacity:0.8; } 50%{ opacity:1; } }
+
+  .quote { animation: fadeSlow 6s ease-in-out infinite; }
+  @keyframes fadeSlow { 0%,100%{opacity:0.7;} 50%{opacity:1;} }
+
+  .statfill { transform-origin: left; animation: growBar 1.6s ease-out forwards; }
+  @keyframes growBar { 0%{ transform: scaleX(0);} 100%{ transform: scaleX(1);} }
+
+  .shimmer { animation: shimmerMove 2.4s linear infinite; }
+  @keyframes shimmerMove { 0%{ transform: translateX(-160px);} 100%{ transform: translateX(420px);} }
+
+  .code-line { clip-path: inset(0 100% 0 0); animation: codeType 6s steps(30,end) infinite; }
+  @keyframes codeType { 0%{clip-path: inset(0 100% 0 0);} 70%{clip-path: inset(0 0% 0 0);} 100%{clip-path: inset(0 0% 0 0);} }
+
+  .neon { animation: flicker 4s infinite; }
+  @keyframes flicker {
+    0%,19%,21%,23%,54%,56%,100% { opacity:1; }
+    20%,22%,55% { opacity:0.4; }
+  }
+
+  .particle { animation: floatUp linear infinite; }
+  @keyframes floatUp { 0% { transform: translateY(0); opacity:0;} 10% { opacity:0.8;} 100% { transform: translateY(-140px); opacity:0;} }
+
+  .scanline { animation: scanMove 3.2s linear infinite; }
+  @keyframes scanMove { 0%{ transform: translateY(70px);} 100%{ transform: translateY(320px);} }
+
+  .avatar-fade { opacity:0; animation: avaFade 1.4s ease forwards; animation-delay:0.4s; }
+  @keyframes avaFade { to { opacity:1; } }
+</style>
+
+<g clip-path="url(#frameL)">
+  <rect width="1280" height="420" fill="url(#bgGradL)"/>
+  <circle cx="1120" cy="90" r="170" fill="url(#orb1L)"/>
+  <circle cx="120" cy="360" r="200" fill="url(#orb2L)"/>
+
+  <rect x="0" y="0" width="1280" height="34" fill="#e2e8f0"/>
+  <circle cx="22" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="42" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="62" cy="17" r="6" fill="#27c93f"/>
+  <text x="1080" y="22" class="mono" font-size="12" fill="#64748b" text-anchor="end">GokulG-04 / README.md</text>
+
+  <text x="30" y="65" class="mono" font-size="17" fill="#475569">gokul@dev:~$ </text>
+  <g class="typeline">
+    <text x="128" y="65" class="mono" font-size="17" fill="#0891b2">cat README.md --profile --live</text>
+  </g>
+  <rect x="450" y="52" width="9" height="16" class="cursor"/>
+
+  <g class="sans" font-weight="700">
+    <text x="30" y="150" font-size="64" fill="url(#nameGradL)">
+      <tspan class="letter" style="animation-delay:0.0s">G</tspan>
+      <tspan class="letter" style="animation-delay:0.06s">O</tspan>
+      <tspan class="letter" style="animation-delay:0.12s">K</tspan>
+      <tspan class="letter" style="animation-delay:0.18s">U</tspan>
+      <tspan class="letter" style="animation-delay:0.24s">L</tspan>
+      <tspan class="letter" style="animation-delay:0.32s"> </tspan>
+      <tspan class="letter" style="animation-delay:0.38s">G</tspan>
+    </text>
+  </g>
+
+  <g class="sans" font-size="22" fill="#1d4ed8" font-weight="600">
+    <text x="32" y="190" class="role" style="animation-delay:0s">AI Engineer</text>
+    <text x="32" y="190" class="role" style="animation-delay:2s">Data Scientist</text>
+    <text x="32" y="190" class="role" style="animation-delay:4s">Data Analyst</text>
+    <text x="32" y="190" class="role" style="animation-delay:6s">Full-Stack Developer</text>
+  </g>
+
+  <g class="sans" font-size="13" font-weight="600">
+    <g class="pill" style="animation-delay:0s"><rect x="32" y="212" rx="14" ry="14" width="82" height="28" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/><text x="73" y="230" fill="#0e7490" text-anchor="middle">Python</text></g>
+    <g class="pill" style="animation-delay:0.3s"><rect x="122" y="212" rx="14" ry="14" width="150" height="28" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/><text x="197" y="230" fill="#0e7490" text-anchor="middle">Machine Learning</text></g>
+    <g class="pill" style="animation-delay:0.6s"><rect x="280" y="212" rx="14" ry="14" width="140" height="28" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/><text x="350" y="230" fill="#0e7490" text-anchor="middle">Deep Learning</text></g>
+    <g class="pill" style="animation-delay:0.9s"><rect x="428" y="212" rx="14" ry="14" width="88" height="28" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/><text x="472" y="230" fill="#0e7490" text-anchor="middle">FastAPI</text></g>
+    <g class="pill" style="animation-delay:1.2s"><rect x="524" y="212" rx="14" ry="14" width="76" height="28" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/><text x="562" y="230" fill="#0e7490" text-anchor="middle">React</text></g>
+    <g class="pill" style="animation-delay:1.5s"><rect x="608" y="212" rx="14" ry="14" width="98" height="28" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/><text x="657" y="230" fill="#0e7490" text-anchor="middle">LangChain</text></g>
+    <g class="pill" style="animation-delay:1.8s"><rect x="714" y="212" rx="14" ry="14" width="64" height="28" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/><text x="746" y="230" fill="#0e7490" text-anchor="middle">SQL</text></g>
+    <g class="pill" style="animation-delay:2.1s"><rect x="786" y="212" rx="14" ry="14" width="78" height="28" fill="#e0f2fe" stroke="#0891b2" stroke-width="1"/><text x="825" y="230" fill="#0e7490" text-anchor="middle">Docker</text></g>
+  </g>
+
+  <rect x="32" y="260" width="560" height="44" rx="8" fill="#f8fafc" stroke="#0891b2" stroke-opacity="0.3"/>
+  <text x="48" y="287" class="mono quote" font-size="14" fill="#0e7490">"Turning data into decisions, one model at a time."</text>
+
+  <text x="32" y="330" class="sans" font-size="13" fill="#475569">Model Accuracy Achieved</text>
+  <rect x="32" y="338" width="560" height="10" rx="5" fill="#e2e8f0"/>
+  <g clip-path="inset(0 round 5px)">
+    <rect x="32" y="338" width="533" height="10" rx="5" fill="url(#barGradL)" class="statfill"/>
+  </g>
+  <g clip-path="inset(0 5px 0 32px round 5px)">
+    <rect y="338" width="60" height="10" fill="#ffffff" opacity="0.45" class="shimmer"/>
+  </g>
+  <text x="600" y="347" class="mono" font-size="12" fill="#0891b2">95%</text>
+
+  <rect x="32" y="366" width="560" height="34" rx="6" fill="#f1f5f9" stroke="#0891b2" stroke-opacity="0.25"/>
+  <circle cx="48" cy="383" r="3" fill="#ff5f56"/>
+  <circle cx="60" cy="383" r="3" fill="#ffbd2e"/>
+  <circle cx="72" cy="383" r="3" fill="#27c93f"/>
+  <g class="code-line">
+    <text x="90" y="388" class="mono" font-size="13" fill="#1d4ed8">const buildDreams = () =&gt; deploy(future);</text>
+  </g>
+
+  <text x="1150" y="400" text-anchor="end" class="sans neon" font-size="15" font-weight="700" fill="#0891b2" filter="url(#glowL)" letter-spacing="2">TURNING DATA INTO DECISIONS</text>
+
+  <circle cx="950" cy="360" r="3" fill="#0891b2" class="particle" style="animation-duration:5s; animation-delay:0s;"/>
+  <circle cx="1000" cy="380" r="2" fill="#1d4ed8" class="particle" style="animation-duration:6.5s; animation-delay:1s;"/>
+  <circle cx="1180" cy="350" r="2.5" fill="#0891b2" class="particle" style="animation-duration:4.5s; animation-delay:2s;"/>
+  <circle cx="1220" cy="390" r="2" fill="#60a5fa" class="particle" style="animation-duration:7s; animation-delay:0.5s;"/>
+  <circle cx="1060" cy="370" r="2" fill="#1d4ed8" class="particle" style="animation-duration:5.5s; animation-delay:3s;"/>
+
+  <g class="avatar-fade">
+    <g clip-path="url(#avatarRevealL)">
+      <rect x="1010" y="70" width="220" height="260" rx="14" fill="#f8fafc" stroke="#0891b2" stroke-opacity="0.5"/>
+      <circle cx="1120" cy="160" r="52" fill="#e0f2fe" stroke="#0891b2" stroke-width="2"/>
+      <circle cx="1104" cy="150" r="6" fill="#0e7490"/>
+      <circle cx="1136" cy="150" r="6" fill="#0e7490"/>
+      <path d="M1098 178 Q1120 196 1142 178" stroke="#0e7490" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <rect x="1080" y="222" width="80" height="70" rx="12" fill="#e0f2fe" stroke="#0891b2" stroke-width="2"/>
+      <text x="1120" y="330" text-anchor="middle" class="mono" font-size="12" fill="#1d4ed8">&lt;GokulG-04/&gt;</text>
+    </g>
+    <g class="scanline">
+      <rect x="1010" y="0" width="220" height="2" fill="#0891b2" opacity="0.85" filter="url(#glowL)"/>
+    </g>
+  </g>
+</g>
+</svg>
